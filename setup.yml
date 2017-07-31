@@ -1,0 +1,17 @@
+---
+ - hosts: raspberry_pi
+   user: "{{ user }}"
+   vars_files:
+     - vars/main.yml
+     - vars/user.yml     
+
+   roles:
+     - roles/ssh
+     - roles/apt
+     - roles/wifi
+     - roles/node
+     - roles/reboot
+
+
+    # Change default user, password, hostname, etc
+    # make a projects directory and pull in multiple projects

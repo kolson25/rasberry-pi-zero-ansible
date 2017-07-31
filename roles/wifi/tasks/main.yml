@@ -1,0 +1,26 @@
+---
+- name: Creates tmp Directory
+  file: path="{{ tmp_directory }}" state=directory   
+
+- name: Create tmp Supplicant File
+  template: src="templates/wpa_supplicant.conf.j2" dest="{{ tmp_directory }}/wpa_supplicant.conf"
+
+- name: Add Wifi Connections to tmp Supplicant File
+  shell: wpa_passphrase "{{ item.ssid }}" "{{ item.password }}" | sudo tee -a {{ tmp_directory }}/wpa_supplicant.conf > /dev/null
+  with_items: "{{ wifi }}"
+  no_log: "{{ dont_show_wifi_connections }}"
+
+- name: Remove Raw Passwords
+  lineinfile:
+    path: "{{ tmp_directory }}/wpa_supplicant.conf"
+    regexp: '#psk.*'
+    state: absent
+
+- name: Move tmp Supplicant File to Real One
+  command: mv {{ tmp_directory }}/wpa_supplicant.conf /etc/wpa_supplicant/wpa_supplicant.conf
+  become: true
+
+- name: Kill the tmp directory
+  file:
+    state: absent
+    path: "{{ raspi_setup_directory }}"

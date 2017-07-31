@@ -1,0 +1,22 @@
+#Some Defaults - Can be overwritten by re-declaring in vars/user.yml
+
+user: pi
+
+home_directory: /home/pi
+raspi_setup_directory: /home/pi/raspi-setup
+tmp_directory: /home/pi/raspi-setup/tmp
+ssh_directory: /home/pi/.ssh
+
+nvm_version: 0.33.2
+node_version: node
+
+ssh_key_path: ~/.ssh/id_rsa.pub
+dont_show_wifi_connections: True
+
+#Passwords must be 8+ chars
+wifi:
+  - { ssid: 'testaddress', password: 'testpass' }
+
+apt_packages:
+  - git
+  - vim  

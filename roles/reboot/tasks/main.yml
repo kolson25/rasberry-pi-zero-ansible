@@ -1,0 +1,9 @@
+---
+- name: Rebooting Raspberry Pi
+  shell: reboot
+  become: true
+  async: 1
+  poll: 0
+
+- name: "Waiting for Raspberry PI to Reboot..."
+  local_action: wait_for host={{ current_ansible_host }} port=22 state=started delay=10
