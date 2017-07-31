@@ -4,4 +4,7 @@ all:
 setup:
 	ansible-playbook setup.yml
 
+wifi:
+	ansible-playbook setup.yml --tags=wifi
+
 first-run: all

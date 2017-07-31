@@ -8,7 +8,7 @@
    roles:
      - roles/ssh
      - roles/apt
-     - roles/wifi
+     - { role: roles/wifi, tags: [ 'wifi' ] }
      - roles/node
      - roles/reboot
 
