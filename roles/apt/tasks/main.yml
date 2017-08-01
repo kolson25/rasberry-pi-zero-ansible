@@ -1,15 +1,16 @@
 ---
-- name: Update APT Package Cache (sudo apt-get update)
-  become: true
-  action: apt update_cache=yes  
+# - name: Update APT Package Cache (sudo apt-get update)
+#   become: true
+#   action: apt update_cache=yes  
 
-- name: 'Upgrade APT Packages (sudo apt-get upgrade)'
-  become: true
-  action: apt upgrade=safe  
+# - name: 'Upgrade APT Packages (sudo apt-get upgrade)'
+#   become: true
+#   action: apt upgrade=safe force=yes  
 
 - name: Install Apt Packages
   become: true
   apt:
     name: "{{ item }}"
     state: present 
+    force: true
   with_items: "{{ apt_packages }}"

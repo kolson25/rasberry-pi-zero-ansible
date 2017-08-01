@@ -6,7 +6,7 @@
      - vars/user.yml
    roles:
      - roles/ssh
-     - roles/apt
-     - { role: roles/wifi, tags: [ 'wifi' ] }
-     - roles/node
+     - { role: roles/wifi, tags: [ 'wifi' ] } 
      - roles/reboot
+     - roles/apt
+     - roles/node

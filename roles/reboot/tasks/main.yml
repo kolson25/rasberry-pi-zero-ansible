@@ -1,4 +1,7 @@
 ---
+- set_fact:
+    current_ansible_host: "{{ ansible_host }}" 
+    
 - name: Rebooting Raspberry Pi
   shell: reboot
   become: true
