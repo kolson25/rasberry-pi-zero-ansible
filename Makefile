@@ -6,5 +6,3 @@ setup:
 
 wifi:
 	ansible-playbook setup.yml --tags=wifi
-
-first-run: all
