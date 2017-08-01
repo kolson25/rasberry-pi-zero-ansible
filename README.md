@@ -1,6 +1,5 @@
 # Ansible: Raspberry Pi Zero Provisioner
-An Ansible provisioner for Raspberry Pi Zeros
-
+An Ansible provisioner for Raspberry Pi Zero W
 
 
 ## 1. Install Ansible
