@@ -3,15 +3,10 @@
    user: "{{ user }}"
    vars_files:
      - vars/main.yml
-     - vars/user.yml     
-
+     - vars/user.yml
    roles:
      - roles/ssh
      - roles/apt
      - { role: roles/wifi, tags: [ 'wifi' ] }
      - roles/node
      - roles/reboot
-
-
-    # Change default user, password, hostname, etc
-    # make a projects directory and pull in multiple projects
